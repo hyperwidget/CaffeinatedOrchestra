@@ -32,3 +32,9 @@ You can quickly start all projects with:
 Alternatively you can go into each project in the `packages` directory and run:
 
 `npm i && npm run start`
+
+# Random notes and reminders
+
+- This project currently has actions defined for deployment on AWS but doesn't actually use them; so they may not be a good reference at this point
+- If you use the script to start all projects with one command above, it will not kill all processes, you'll have to find them and kill them manually; I'll fix this with (npm-recursive)[npm-recursive-install
+  ] I think
