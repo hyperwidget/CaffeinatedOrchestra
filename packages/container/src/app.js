@@ -5,6 +5,7 @@ import {
   createGenerateClassName,
 } from "@material-ui/core/styles";
 import { createBrowserHistory } from "history";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import Header from "./components/header";
 import Progress from "./components/progress";
@@ -21,6 +22,7 @@ const history = createBrowserHistory();
 
 export default () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const { loginWithRedirect } = useAuth0();
   useEffect(() => {
     if (isSignedIn) {
       history.push("/dashboard");
@@ -38,7 +40,7 @@ export default () => {
           <Suspense fallback={<Progress />}>
             <Switch>
               <Route path="/auth">
-                <AuthLazy onSignIn={() => setIsSignedIn(true)} />
+                <AuthLazy onSignIn={loginWithRedirect} />
               </Route>
               <Route path="/dashboard">
                 {!isSignedIn && <Redirect to="/" />}
