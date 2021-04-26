@@ -38,6 +38,10 @@ const mount = (
     history.listen(onNavigate);
   }
 
+  // We leverage wrapper components around our app to allow for providers to surface values that
+  // would otherwise be provided through the container component. In most apps, this will include
+  // an authentication provider to ensure they can develop against specific sessions
+
   if (WrapperComponent) {
     console.log("in Wrapper");
     ReactDOM.render(

@@ -11,9 +11,10 @@ const generateClassName = createGenerateClassName({
   productionPrefix: "ma",
 });
 
-export default ({ history }) => {
+export default ({ history, user }) => {
   return (
     <div>
+      <div>Yo {user?.name}</div>
       <StylesProvider generateClassName={generateClassName}>
         <Router history={history}>
           <Switch>

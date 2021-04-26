@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { mount } from "marketing/MarketingApp";
 import { useHistory } from "react-router-dom";
 
-export default () => {
+export default ({ user }) => {
   const ref = useRef(null);
   const history = useHistory();
 
@@ -15,6 +15,7 @@ export default () => {
         }
       },
       initialPath: history.location.pathname,
+      user,
     });
 
     history.listen(onParentNavigate);

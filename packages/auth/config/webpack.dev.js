@@ -23,6 +23,7 @@ const devConfig = {
       filename: "remoteEntry.js",
       exposes: {
         "./AuthApp": "./src/bootstrap",
+        "./DevAuthWrapper": "./src/external/Auth0Wrapper",
       },
       shared: packageJson.dependencies,
     }),
