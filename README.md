@@ -10,6 +10,11 @@ Each "Package" sub-frontend in the packages folder (other than the 'container') 
 
 The "Container" application is the orchestrator of all of the different frontend apps, importing their code, and leveraging it in a way that makes the entire application feel like a single experience.
 
+# Pre-reqs to running locally
+
+- Must create a `.env` file for development environment variables to get provided, duplicate the `.env.sample` and rename it to just `.env`.
+- Auth0 requires your domain and client id to be configured in the newly created .env
+
 # Starting the project in dev
 
 ## Commands
