@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header({ isSignedIn, onSignOut }) {
+export default function Header({ isSignedIn, onSignOut, name }) {
   const classes = useStyles();
 
   const onClick = () => {
@@ -81,6 +81,7 @@ export default function Header({ isSignedIn, onSignOut }) {
           >
             App
           </Typography>
+          {name && `Hello ${name}`}
           <Button
             color="primary"
             variant="outlined"

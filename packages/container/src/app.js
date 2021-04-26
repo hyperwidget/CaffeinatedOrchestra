@@ -21,7 +21,7 @@ const generateClassName = createGenerateClassName({
 const history = createBrowserHistory();
 
 export default () => {
-  const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
   useEffect(() => {
     if (isAuthenticated) {
       history.push("/dashboard");
@@ -32,7 +32,11 @@ export default () => {
     <Router history={history}>
       <StylesProvider generateClassName={generateClassName}>
         <div>
-          <Header isSignedIn={isAuthenticated} onSignOut={logout} />
+          <Header
+            isSignedIn={isAuthenticated}
+            onSignOut={logout}
+            name={user?.name}
+          />
           <Suspense fallback={<Progress />}>
             <Switch>
               <Route path="/auth">
